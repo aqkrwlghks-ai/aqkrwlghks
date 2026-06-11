@@ -1,4 +1,4 @@
-import { PackageDetail, AdditionalService, ProcessStep } from "./types";
+import { PackageDetail, AdditionalService, ProcessStep, PortfolioItem } from "./types";
 
 export const BRAND_SLOGAN_TITLE = "삶을 기록하고, 사랑을 전하며, 믿음을 유산으로 남기다.";
 export const BRAND_SLOGAN_SUB = "부모님의 이야기, 가족의 추억, 신앙의 여정을 따뜻한 영상 다큐멘터리로 담아 소중한 다음 세대에게 전달합니다.";
@@ -152,3 +152,34 @@ export const CORE_VALUES = [
     text: "우리는 단순히 마이크를 쥐어주는 영상 제작자가 아닙니다. 인생의 복잡한 굴곡과 빛나는 가치를 귀담아 듣고, 다음 세대에 교훈이 되도록 엮어내는 전문 다큐멘터리 연출가입니다."
   }
 ];
+
+export const PORTFOLIOS: PortfolioItem[] = [
+  {
+    id: "portfolio-1",
+    title: "새벽 종소리와 어머니의 기도",
+    category: "FAITH STORY (신앙 유산)",
+    duration: "35분",
+    description: "45년간 하루도 빠짐없이 자녀들의 이름을 불러가며 흘린 어머니의 눈물의 기도와 신앙 여정을 담은 영화 같은 다큐멘터리입니다.",
+    imageUrl: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
+    quote: "\"내 평생의 자랑은 주님을 만난 것이요, 내 자손에게 남길 유일한 가보는 기도다.\""
+  },
+  {
+    id: "portfolio-2",
+    title: "마지막 한 땀, 평생의 양복",
+    category: "LEGACY (인생 기록)",
+    duration: "25분",
+    description: "분당의 작은 골목에서 40년 동안 신사복을 지어온 아버님의 장인 정신과 자녀들을 정직하게 키워낸 일대기를 사실적이고 감동적으로 그려냈습니다.",
+    imageUrl: "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?q=80&w=800&auto=format&fit=crop",
+    quote: "\"실 하나, 바늘 한 땀에도 부끄러움이 없도록 살아온 것이 내 인생의 전부란다.\""
+  },
+  {
+    id: "portfolio-3",
+    title: "노을 빛 아래, 우리들의 시간",
+    category: "MEMORY (추억 기록)",
+    duration: "10분",
+    description: "부모님의 칠순을 맞아 삼남매가 함께 떠난 고향 여행과 거실에서 두런두런 나눈 소박한 인생의 웃음들을 따뜻한 아날로그 톤으로 담았습니다.",
+    imageUrl: "https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=800&auto=format&fit=crop",
+    quote: "\"너희들이 내 곁에 모여 활짝 웃어주는 것, 그것이 내 평생 가장 큰 축복이란다.\""
+  }
+];
+

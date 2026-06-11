@@ -17,17 +17,20 @@ import {
   Award,
   BookOpen,
   ArrowRight,
-  MapPin
+  MapPin,
+  Play,
+  Quote
 } from "lucide-react";
 import Header from "./components/Header";
 import AIPresentationPlanner from "./components/AIPresentationPlanner";
-import { PACKAGES, ADDITIONAL_SERVICES, EXPERIENCE_STEPS, BRAND_SLOGAN_TITLE, BRAND_SLOGAN_SUB, CORE_VALUES } from "./data";
+import { PACKAGES, ADDITIONAL_SERVICES, EXPERIENCE_STEPS, BRAND_SLOGAN_TITLE, BRAND_SLOGAN_SUB, CORE_VALUES, PORTFOLIOS } from "./data";
 import { PackageDetail } from "./types";
 
 export default function App() {
   const plannerRef = useRef<HTMLDivElement>(null);
   const packagesRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
+  const portfolioRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (elementRef: React.RefObject<HTMLDivElement | null>) => {
     if (elementRef.current) {
@@ -43,6 +46,7 @@ export default function App() {
         onScrollToPlanner={() => scrollToSection(plannerRef)} 
         onScrollToPackages={() => scrollToSection(packagesRef)} 
         onScrollToSteps={() => scrollToSection(stepsRef)} 
+        onScrollToPortfolio={() => scrollToSection(portfolioRef)}
       />
 
       {/* Hero Section */}
@@ -222,6 +226,83 @@ export default function App() {
             <p className="font-serif-korean text-xs sm:text-sm text-[#6B5F4F] leading-relaxed max-w-2xl mx-auto">
               레거시 필름의 핵심 차별화는 부모님의 단순한 인생 나열을 넘어, <strong>"평생 지켜온 주님과의 동행기, 간증, 기도 유산"</strong>을 영화 예술로 담는 것에 있습니다. 자녀들이 가녀리고 혼란스러운 세상의 길을 잃을 때 꺼내 들으면 다시 일어설 확고한 반석 신앙을 가보로 남겨주세요.
             </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Portfolio Showcase Section */}
+      <div ref={portfolioRef} />
+      <section className="py-24 bg-[#F9F7F2] border-t border-[#E5E1D8]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10">
+          
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#8B7E66] bg-[#F2EFE9] px-3 py-1.5 font-bold rounded-full">
+              SELECTED PORTFOLIOS
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#4A443D] mt-4 font-bold tracking-tight">
+              레거시 필름 대표 작품
+            </h2>
+            <p className="font-serif-korean text-xs sm:text-sm text-[#6B5F4F] mt-3 leading-relaxed">
+              시간이 흘러도 흐려지지 않는 감동, 실제 가문의 이야기를 영화 예술로 승화시킨 대표 다큐멘터리입니다.
+            </p>
+          </div>
+
+          {/* Portfolio Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {PORTFOLIOS.map((item) => (
+              <div 
+                key={item.id}
+                className="bg-white border border-[#E5E1D8] overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#8B7E66] group"
+              >
+                {/* Image & Category Overlay */}
+                <div className="relative aspect-video overflow-hidden bg-stone-100">
+                  <img 
+                    src={item.imageUrl} 
+                    alt={item.title} 
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover grayscale-15 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                  
+                  {/* Category Badge */}
+                  <span className="absolute top-4 left-4 bg-[#4A443D]/95 text-[#F9F7F2] text-[9px] font-bold tracking-wider py-1 px-3 rounded font-serif-korean uppercase">
+                    {item.category}
+                  </span>
+
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-12 h-12 rounded-full bg-[#F9F7F2] flex items-center justify-center text-[#4A443D] shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                      <Play className="w-5 h-5 fill-current ml-0.5" />
+                    </div>
+                  </div>
+
+                  {/* Duration Badge */}
+                  <span className="absolute bottom-3 right-3 bg-black/60 text-white text-[9px] font-mono py-0.5 px-2 rounded">
+                    {item.duration}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 sm:p-8 space-y-4">
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#3D3832]">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="font-serif-korean text-xs text-[#6B5F4F] leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  {/* Italicized Quote box */}
+                  <div className="border-t border-[#E5E1D8] pt-4 mt-2">
+                    <p className="font-serif-korean text-[11px] text-[#8B7E66] italic leading-relaxed flex items-start gap-1">
+                      <Quote className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
+                      <span>{item.quote}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>

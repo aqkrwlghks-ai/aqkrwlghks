@@ -49,3 +49,13 @@ export interface PlanFormState {
   keyEvents: string;
   warmStories: string;
 }
+
+export interface PortfolioItem {
+  id: string;
+  title: string;
+  category: string;
+  duration: string;
+  description: string;
+  imageUrl: string;
+  quote: string;
+}

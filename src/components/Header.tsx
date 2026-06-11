@@ -5,9 +5,10 @@ interface HeaderProps {
   onScrollToPlanner: () => void;
   onScrollToPackages: () => void;
   onScrollToSteps: () => void;
+  onScrollToPortfolio: () => void;
 }
 
-export default function Header({ onScrollToPlanner, onScrollToPackages, onScrollToSteps }: HeaderProps) {
+export default function Header({ onScrollToPlanner, onScrollToPackages, onScrollToSteps, onScrollToPortfolio }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-[#F9F7F2]/90 backdrop-blur-md border-b border-[#E5E1D8] transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
@@ -18,6 +19,12 @@ export default function Header({ onScrollToPlanner, onScrollToPackages, onScroll
 
         {/* Navigation Elements */}
         <nav className="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-[#4A443D]">
+          <button
+            onClick={onScrollToPortfolio}
+            className="hover:text-[#8B7E66] transition-colors duration-250 hover:underline underline-offset-4 cursor-pointer"
+          >
+            대표 작품
+          </button>
           <button
             onClick={onScrollToPackages}
             className="hover:text-[#8B7E66] transition-colors duration-250 hover:underline underline-offset-4 cursor-pointer"
